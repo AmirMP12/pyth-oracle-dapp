@@ -22,6 +22,7 @@
 9. [API Documentation](#api-documentation)
 10. [Testing & Coverage](#testing--coverage)
 11. [Security Considerations](#security-considerations)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -1501,6 +1502,148 @@ server {
 ```bash
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; script-src 'self'">
+```
+
+---
+## 🐛 Troubleshooting
+### Common Issues & Solutions
+
+1. **Contract Deployment Fails**
+
+Error:
+
+```bash
+Error: insufficient funds for gas * price + value
+```
+
+Solution:
+
+```bash
+1. Check your balance:
+
+2. If low, get testnet tokens: Conflux Faucet
+
+3. Or reduce gas price in hardhat.config.ts:
+
+networks: {
+  confluxTestnet: {
+    gasPrice: 20000000000, // 20 Gwei
+  }
+}
+```
+2. **Backend Can't Connect to Pyth**
+   
+Error:
+
+```bash
+Error: Failed to fetch prices from Pyth Network
+```
+
+Solution:
+
+```bash
+1. Test Pyth API directly:
+
+curl "https://hermes.pyth.network/api/latest_price_feeds?ids[]=0xe62df6c..."
+
+2. Check your feed IDs in .env.
+
+3. Verify network connectivity:
+
+ping hermes.pyth.network
+
+4. Try alternative endpoint:
+
+PYTH_ENDPOINT=https://xc-mainnet.pyth.network
+```
+
+3. **TypeScript Compilation Errors**
+
+Error:
+
+```bash
+TS1192: Module has no default export
+```
+
+Solution:
+
+```bash
+1. Clean and rebuild:
+
+rm -rf dist/ node_modules/
+npm install
+npm run build
+
+2. Or update tsconfig.json:
+
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
+
+```
+4. **Docker Container Won't Start**
+
+Error:
+
+```bash
+Container exits with code 137
+```
+
+Solution:
+
+```bash
+1. Increase Docker memory:
+Docker Desktop → Settings → Resources → Memory: 4GB+
+
+2. Check container logs:
+
+docker-compose logs backend
+
+3. Restart with clean slate:
+
+docker-compose down -v
+docker system prune -a
+docker-compose up -d --build
+
+```
+5. **WebSocket Connection Drops**
+
+Error:
+
+```bash
+WebSocket connection closed unexpectedly
+```
+
+Solution:
+
+```bash
+1. Add reconnection logic in frontend:
+
+let ws;
+let reconnectInterval;
+
+function connect() {
+  ws = new WebSocket(VITE_WS_URL);
+  ws.onclose = () => {
+    console.log('Reconnecting in 5s...');
+    clearTimeout(reconnectInterval);
+    reconnectInterval = setTimeout(connect, 5000);
+  };
+}
+
+2. Add heartbeat in backend:
+
+const heartbeat = setInterval(() => {
+  wss.clients.forEach((ws) => {
+    if (ws.isAlive === false) return ws.terminate();
+    ws.isAlive = false;
+    ws.ping();
+  });
+}, 30000);
+
 ```
 ## 📄 License
 
