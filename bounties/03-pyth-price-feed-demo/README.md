@@ -1379,7 +1379,6 @@ npm run test:integration
 npm run test:watch
 ```
 
-**Test Structure:**
 
 **Expected Coverage:**
 ```bash
@@ -1407,11 +1406,6 @@ npm run test
 # Run with coverage
 npm run test:coverage
 
-# Run E2E tests
-npm run test:e2e
-
-# Visual regression tests
-npm run test:visual
 ```
 ---
 
