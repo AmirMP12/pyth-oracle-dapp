@@ -645,7 +645,7 @@ backend/
 │   │   ├── liquidations.test.ts
 │   │   └── prices.test.ts
 │   │
-│   ├── _mocks_/                 # Test mocks
+│   ├── _mock_/                 # Test mocks
 │   │   └── logger.ts
 │   │
 │   └── setup.ts                   # Jest setup file
@@ -792,13 +792,35 @@ frontend/
 │   │   ├── constants.ts
 │   │   ├── contractABI.ts
 │   │   ├── pythClient.ts
-│   │   └── viemClient.ts
+│   │   ├── viemClient.ts
+│   │   └── env.ts
 │   │
 │   ├── providers/
 │   │   └── Web3Provider.tsx
 │   │
 │   ├── types/
 │   │   └── index.ts
+│   │
+│   └── tests/
+│       ├── AlertManager.test.tsx
+│       ├── app.test.tsx
+│       ├── BettingInterface.test.tsx
+│       ├── chains.test.ts
+│       ├── constants.test.ts
+│       ├── contractABI.test.ts
+│       ├── env.test.ts
+│       ├── Layout.test.tsx
+│       ├── LiquidityMonitor.test.tsx
+│       ├── PriceChart.test.tsx
+│       ├── PriceDashboard.test.tsx
+│       ├── pythClient.test.ts
+│       ├── useContracts.test.ts
+│       ├── useLiquidations.test.ts
+│       ├── usePythPrices.test.ts
+│       ├── useWebSocket.test.ts
+│       ├── viemClient.test.ts
+│       ├── WalletConnect.test.tsx
+│       └── WebProvider.test.tsx
 │
 ├── public/
 │   ├── bitcoin.png
@@ -816,7 +838,8 @@ frontend/
 ├── postcss.config.js
 ├── tailwind.config.js
 ├── vite.config.ts
-└── index.html
+├── jest.config.js
+└── jest.setup.ts  
 ```
 
 ### 3. Install Dependencies
