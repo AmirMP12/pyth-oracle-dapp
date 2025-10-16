@@ -1502,9 +1502,6 @@ server {
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; script-src 'self'">
 ```
----
-
-bash```
 ## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
