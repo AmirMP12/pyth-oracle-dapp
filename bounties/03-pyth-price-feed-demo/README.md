@@ -22,7 +22,6 @@
 9. [API Documentation](#api-documentation)
 10. [Testing & Coverage](#testing--coverage)
 11. [Security Considerations](#security-considerations)
-12. [Contributing](#contributing)
 
 ---
 
@@ -1503,61 +1502,9 @@ server {
 <meta http-equiv="Content-Security-Policy" 
       content="default-src 'self'; script-src 'self'">
 ```
-
 ---
 
-## 🤝 Contributing
-
-### How to Contribute
-
-1. **Fork the repository**
-```bash
-git clone https://github.com/AmirMP12/pyth-oracle-dapp.git
-```
-
-2. **Create a branch**
-```bash
-git checkout -b feature/amazing-feature
-```
-
-3. **Make changes and commit**
-```bash
-git add .
-git commit -m "Add amazing feature"
-```
-
-4. **Push and create PR**
-```bash
-git push origin feature/amazing-feature
-```
-
-### Code Style
-```bash
-
-# Lint code
-npm run lint
-
-# Format code
-npm run format
-
-# Run tests
-npm test
-```
-
-### Commit Message Convention
-```bash
-
-feat: Add new feature
-fix: Bug fix
-docs: Documentation update
-style: Code style changes
-refactor: Code refactoring
-test: Add tests
-chore: Maintenance tasks
-```
-
----
-
+bash```
 ## 📄 License
 
 MIT License - see [LICENSE](LICENSE) file for details.
