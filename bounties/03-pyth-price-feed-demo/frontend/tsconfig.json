@@ -25,5 +25,12 @@
     }
   },
   "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "*/*.test.tsx",
+    "src/tests"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
